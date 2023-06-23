@@ -1,0 +1,37 @@
+{
+    "version": "0.1.0",
+    "bits":[
+        {
+            "Label": "Tx",
+            "Index": "1"
+        },
+        {
+            "Label": "Rx",
+            "Index": "2"
+        },
+        {
+            "Label": "unBlanking",
+            "Index": "3"
+        },
+        {
+            "Label": "Rx_switch",
+            "Index": "4"
+        },
+        {
+            "Label": "bit5",
+            "Index": "5"
+        },
+        {
+            "Label": "bit6",
+            "Index": "6"
+        },
+        {
+            "Label": "bit7",
+            "Index": "7"
+        },
+        {
+            "Label": "bit8",
+            "Index": "8"
+        }
+    ]
+}
