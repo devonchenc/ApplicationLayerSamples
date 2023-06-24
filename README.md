@@ -149,18 +149,20 @@ void setAcquireCallback(AcquireCallback callback);
 
 callback
 
-函数指针，其定义为typedef std::function<void(const std::shared_ptr<Point3[]>&, const std::shared_ptr<double[]>&, int)> AcquireCallback;
+函数指针，其定义为typedef std::function<void(int, int, const std::shared_ptr<Point3[]>&, const std::shared_ptr<double[]>&, int)> AcquireCallback;
 
 函数返回：无
 
 调用示例：
 
 ```
-void func(const std::shared_ptr<const Point3[]>& timeDomainData,
+void func(int count, int total, const std::shared_ptr<const Point3[]>& timeDomainData,
           const std::shared_ptr<const double[]>& timeArray, int length)
 {
     std::cout << "Time domain data acquired." << std::endl;
     // 此处添加处理代码
+    // count代表当前扫描次数，total为总扫描次数
+    // timeDomainData为时域数据数组指针，timeArray为时域数据对应的时间数组指针
 }
 
 // 设置采集中的回调函数
