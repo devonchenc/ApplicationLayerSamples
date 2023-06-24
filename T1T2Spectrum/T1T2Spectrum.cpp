@@ -50,18 +50,7 @@ int main()
         const std::shared_ptr<Point3[]> timeDomainData = app->timeDomainData();
         const std::shared_ptr<double[]> timeArray = app->timeArray();
 
-        //  获取后处理数据
-        std::shared_ptr<T1T2SpectrumApp> spectrumApp = std::dynamic_pointer_cast<T1T2SpectrumApp>(app);
-        const std::vector<std::vector<float>>& amplitudeVec = spectrumApp->amplitudeTotalData();
-        const std::vector<std::vector<float>>& timeVec = spectrumApp->timeTotalData();
-        for (int i = 0; i < amplitudeVec.size(); i++)
-        {
-            for (int j = 0; j < amplitudeVec[i].size(); j++)
-            {
-                // 使用amplitudeVec[i][j]或timeVec[i][j]可以访问单个数据
-                std::cout << amplitudeVec[i][j] << std::endl;
-            }
-        }
+        // 添加处理代码
     }
 
     ApplicationLayer::instance().exit();

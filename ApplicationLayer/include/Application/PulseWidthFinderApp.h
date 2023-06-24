@@ -27,6 +27,9 @@ public:
     // 返回一系列回波信号幅值的数组
     const std::vector<DoublePoint>& amplitudeData() const;
 
+    // 返回根据拟合曲线离散的数据
+    const std::vector<DoublePoint>& fittedData() const;
+
     // 返回拟合参数 y = A * cos(Omega * x + Phi) + K
     std::optional<double> fittedA() const;
     std::optional<double> fittedOmega() const;

@@ -281,8 +281,10 @@ void stopScan();
 函数返回：无
 
 # 4. 自动调频应用类AutoFrequencyApp
-自动调频应用类AutoFrequencyApp是ApplicationBase的子类，其作用是用来搜寻设备的拉莫尔频率，并自动进行更新。
-
+自动调频应用类AutoFrequencyApp是ApplicationBase的子类，其作用是用来搜寻设备的拉莫尔频率，并自动进行更新。其创建方式是调用工厂类的createApp()函数时传入字符串"AutoFrequency"，
+```
+ApplicationFactory::instance().createApp("AutoFrequency");
+```
 ## 4.1 AutoFrequencyApp::searchSucceeded
 ```
 bool searchSucceeded() const;
@@ -324,8 +326,10 @@ const std::shared_ptr<double>& frequencyData() const;
 函数返回：指向存储为double类型数组的智能指针
 
 # 5. 脉宽搜索应用类PulseWidthFinderApp
-自动调频应用类PulseWidthFinderApp是ApplicationBase的子类，目的是搜寻设备的90°脉宽和180°脉宽，将90°和180°脉冲的最优宽度记录下来，并在后续扫描其它应用的序列时用最优脉冲宽度来自动更新序列的其它参数。
-
+脉宽搜索应用类PulseWidthFinderApp是ApplicationBase的子类，目的是搜寻设备的90°脉宽和180°脉宽，将90°和180°脉冲的最优宽度记录下来，并在后续扫描其它应用的序列时用最优脉冲宽度来自动更新序列的其它参数。其创建方式是调用工厂类的createApp()函数时传入字符串"PulseWidthFinder"，
+```
+ApplicationFactory::instance().createApp("PulseWidthFinder");
+```
 ## 5.1 PulseWidthFinderApp::amplitudeData
 ```
 const std::vector<DoublePoint>& amplitudeData() const;
@@ -349,57 +353,17 @@ public:
 ```
 此处，DoublePoint中存储的坐标值x()为对应的脉冲宽度，y()为对应的幅值。
 
-## 5.2 PulseWidthFinderApp::fittedResult
+## 5.2 PulseWidthFinderApp::fittedData
 ```
-std::tuple<std::optional<double>, std::optional<double>, std::optional<double>, std::optional<double>> fittedResult() const;
+const std::vector<DoublePoint>& fittedData() const;
 ```
-函数说明：返回正弦曲线拟合（y = A * cos(Omega * x + Phi) + K）参数A, Omega, Phi 和 K
+函数说明：返回拟合的幅值数组
 
 调用参数：无
 
-函数返回：std::tuple元组内包含了四个拟合参数。如果拟合失败或未完成，则元组内元素为std::nullopt，否则其存储的double数值依次为四个拟合参数的数值。
+函数返回：指向存储为DoublePoint类型数组的智能指针。
 
-## 5.3 PulseWidthFinderApp::fittedA
-```
-std::optional<double> fittedA() const;
-```
-函数说明：返回正弦曲线拟合（y = A * cos(Omega * x + Phi) + K）参数A
-
-调用参数：无
-
-函数返回：std::optional<double>类型。如果拟合失败或未完成，则为std::nullopt，否则其存储的double数值为参数A的值。
-
-## 5.4 PulseWidthFinderApp::fittedOmega
-```
-std::optional<double> fittedOmega() const;
-```
-函数说明：返回正弦曲线拟合（y = A * cos(Omega * x + Phi) + K）参数Omega
-
-调用参数：无
-
-函数返回：std::optional<double>类型。如果拟合失败或未完成，则为std::nullopt，否则其存储的double数值为参数Omega的值。
-
-## 5.5 PulseWidthFinderApp::fittedPhi
-```
-std::optional<double> fittedPhi() const;
-```
-函数说明：返回正弦曲线拟合（y = A * cos(Omega * x + Phi) + K）参数Phi
-
-调用参数：无
-
-函数返回：std::optional<double>类型。如果拟合失败或未完成，则为std::nullopt，否则其存储的double数值为参数Phi的值。
-
-## 5.6 PulseWidthFinderApp::fittedK
-```
-std::optional<double> fittedPhi() const;
-```
-函数说明：返回正弦曲线拟合（y = A * cos(Omega * x + Phi) + K）参数K
-
-调用参数：无
-
-函数返回：std::optional<double>类型。如果拟合失败或未完成，则为std::nullopt，否则其存储的double数值为参数K的值。
-
-## 5.7 PulseWidthFinderApp::pw90Result
+## 5.3 PulseWidthFinderApp::pw90Result
 ```
 std::optional<double> pw90Result() const;
 ```
@@ -409,7 +373,7 @@ std::optional<double> pw90Result() const;
 
 函数返回：std::optional<double>类型。如果搜索失败或未完成，则为std::nullopt，否则其存储的double数值为90°脉宽的值。
 
-## 5.8 PulseWidthFinderApp::pw180Result
+## 5.4 PulseWidthFinderApp::pw180Result
 ```
 std::optional<double> pw180Result() const;
 ```
@@ -420,97 +384,13 @@ std::optional<double> pw180Result() const;
 函数返回：std::optional<double>类型。如果搜索失败或未完成，则为std::nullopt，否则其存储的double数值为180°脉宽的值。
 
 # 6. 自动T2应用类AutoT2App
-自动T2应用类AutoT2App是ApplicationBase的子类，其目的是自动测量样品的T2时间。
-
-## 6.1 AutoT2App::compressedAmpData
+自动T2应用类AutoT2App是ApplicationBase的子类，其目的是自动测量样品的T2时间。其创建方式是调用工厂类的createApp()函数时传入字符串"AutoT2"，
 ```
-const std::shared_ptr<double[]>& compressedAmpData() const;
+ApplicationFactory::instance().createApp("AutoT2");
 ```
-函数说明：返回抽样后的幅值数组
-
-调用参数：无
-
-函数返回：指向存储为double类型数组的智能指针
-
-## 6.2 AutoT2App::compressedTimeData
-```
-const std::shared_ptr<double>& compressedTimeData() const;
-```
-函数说明：返回抽样后的时间数组(单位ms)
-
-调用参数：无
-
-函数返回：指向存储为double类型数组的智能指针
-
-## 6.3 AutoT2App::compressedLen
-```
-int compressedLen() const;
-```
-函数说明：返回抽样后的数组长度，即数组compressedAmpData和compressedTimeData的长度
-
-调用参数：无
-
-函数返回：数组长度
-
-## 6.4 AutoT2App::fittedResult
-```
-std::tuple<std::optional<double>, std::optional<double>, std::optional<double>> fittedResult() const;
-```
-函数说明：返回指数曲线拟合（y = A * exp(-B * x) + C）参数A, B 和 C
-
-调用参数：无
-
-函数返回：std::tuple元组内包含了三个拟合参数。如果拟合失败或未完成，则元组内元素为std::nullopt，否则其存储的double数值依次为三个拟合参数的数值。
-
-## 6.5 AutoT2App::fittedA
-```
-std::optional<double> fittedA() const;
-```
-函数说明：返回指数曲线拟合（y = A * exp(-B * x) + C）参数A
-
-调用参数：无
-
-函数返回：std::optional<double>类型。如果拟合失败或未完成，则为std::nullopt，否则其存储的double数值为参数A的值。
-
-## 6.6 AutoT2App::fittedB
-```
-std::optional<double> fittedB() const;
-```
-函数说明：返回指数曲线拟合（y = A * exp(-B * x) + C）参数B
-
-调用参数：无
-
-函数返回：std::optional<double>类型。如果拟合失败或未完成，则为std::nullopt，否则其存储的double数值为参数B的值。
-
-## 6.7 AutoT2App::fittedC
-```
-std::optional<double> fittedC() const;
-```
-函数说明：返回指数曲线拟合（y = A * exp(-B * x) + C）参数C
-
-调用参数：无
-
-函数返回：std::optional<double>类型。如果拟合失败或未完成，则为std::nullopt，否则其存储的double数值为参数C的值。
 
 # 7. T1T2谱应用类T1T2SpectrumApp
-T1T2谱应用类T1T2SpectrumApp是ApplicationBase的子类，该应用会测量多个SR_CPMG序列，每次都需要改变TI值、回波数目NE、扫描次数NS等，从而得到一系列的回波衰减曲线。
-
-## 7.1 AutoT2App::amplitudeTotalData
+T1T2谱应用类T1T2SpectrumApp是ApplicationBase的子类，该应用会测量多个SR_CPMG序列，每次扫描会改变TI值、回波数目NE、扫描次数NS等，从而得到一系列的回波衰减曲线。其创建方式是调用工厂类的createApp()函数时传入字符串"T1T2Spectrum"，
 ```
-const std::vector<std::vector<float>>& amplitudeTotalData() const;
+ApplicationFactory::instance().createApp("T1T2Spectrum");
 ```
-函数说明：返回历次扫描的一系列幅值数据
-
-调用参数：无
-
-函数返回：指向存储为std::vector<std::vector<float>>类型二维数组的const reference，其中第一个维度代表扫描次数，第二个维度为该次扫描所对应的float类型幅值数据。
-
-## 7.2 AutoT2App::timeTotalData
-```
-const std::vector<std::vector<float>>& timeTotalData() const;
-```
-函数说明：返回历次扫描的一系列时间数据
-
-调用参数：无
-
-函数返回：指向存储为std::vector<std::vector<float>>类型二维数组的const reference，其中第一个维度代表扫描次数，第二个维度为该次扫描所对应的float类型时间数据。

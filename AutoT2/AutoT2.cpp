@@ -50,25 +50,9 @@ int main()
         const std::shared_ptr<Point3[]>& timeDomainData = app->timeDomainData();
         const std::shared_ptr<double[]>& timeArray = app->timeArray();
 
-        //  获取后处理数据
-        std::shared_ptr<AutoT2App> autoT2App = std::dynamic_pointer_cast<AutoT2App>(app);
-        // 抽样后的幅值数组
-        const std::shared_ptr<double[]>& compressedAmpData = autoT2App->compressedAmpData();
-        // 抽样后的时间数组(ms)
-        const std::shared_ptr<double[]>& compressedTimeData = autoT2App->compressedTimeData();
-        // 抽样后的数组长度
-        int compressedLen = autoT2App->compressedLen();
-
-        std::optional<double> A = autoT2App->fittedA();
-        std::optional<double> B = autoT2App->fittedB();
-        std::optional<double> C = autoT2App->fittedC();
-
         // 保存时域数据
         std::string timeDomainDataName = "timeDomain.csv";
         app->saveTimeDomainData(timeDomainDataName);
-        // 保存后处理数据
-        std::string processedDataName = "processed.csv";
-        app->saveProcessedData(processedDataName);
     }
 
     ApplicationLayer::instance().exit();

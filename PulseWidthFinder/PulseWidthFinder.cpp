@@ -50,14 +50,9 @@ int main()
         const std::shared_ptr<Point3[]>& timeDomainData = app->timeDomainData();
         const std::shared_ptr<double[]>& timeArray = app->timeArray();
 
-        //  获取后处理数据
+        //  获取后处理的拟合数据
         std::shared_ptr<PulseWidthFinderApp> pwfApp = std::dynamic_pointer_cast<PulseWidthFinderApp>(app);
-        const std::vector<DoublePoint>& amplitudeData = pwfApp->amplitudeData();
-        // 获取正弦拟合参数 y = A * cos(Omega * x + Phi) + K
-        std::optional<double> A = pwfApp->fittedA();
-        std::optional<double> omega = pwfApp->fittedOmega();
-        std::optional<double> phi = pwfApp->fittedPhi();
-        std::optional<double> k = pwfApp->fittedK();
+        const std::vector<DoublePoint>& fittedData = pwfApp->fittedData();
 
         // 获取拟合结果
         std::optional<double> pw90Result = pwfApp->pw90Result();
