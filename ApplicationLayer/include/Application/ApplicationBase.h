@@ -20,7 +20,7 @@ enum ScanStatus
 };
 #endif
 
-typedef std::function<void(const std::shared_ptr<Point3[]>&, const std::shared_ptr<double[]>&, int)> AcquireCallback;
+typedef std::function<void(int count, int total, const std::shared_ptr<Point3[]>&, const std::shared_ptr<double[]>&, int)> AcquireCallback;
 
 class APPLICATIONLAYER_EXPORT ApplicationBase
 {

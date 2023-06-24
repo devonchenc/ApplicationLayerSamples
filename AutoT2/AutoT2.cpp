@@ -3,9 +3,9 @@
 #include "ApplicationLayer.h"
 #include "Application/AutoT2App.h"
 
-void func(const std::shared_ptr<const Point3[]>& timeDomainData, const std::shared_ptr<const double[]>& timeArray, int length)
+void func(int count, int total, const std::shared_ptr<const Point3[]>& timeDomainData, const std::shared_ptr<const double[]>& timeArray, int length)
 {
-    std::cout << "Time domain data acquired." << std::endl;
+    std::cout << "Time domain data acquired " << count << "/" << total << std::endl;
     // 此处添加处理代码
 }
 
