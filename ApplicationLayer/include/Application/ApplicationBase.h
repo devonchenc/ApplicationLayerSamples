@@ -84,8 +84,8 @@ public:
     // 返回未扫描样品数量
     int unscannedSampleNum();
 
-    // 设置App工作目录
-    bool setWorkDirectory(const std::string& directory);
+    // 设置App父目录和App工作目录名
+    bool setWorkDirectory(const std::string& directory, const std::string& subDirectory = "");
 
     // 返回App工作目录
     std::string workDirectory() const;

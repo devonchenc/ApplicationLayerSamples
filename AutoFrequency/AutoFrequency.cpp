@@ -28,7 +28,8 @@ int main()
 
     // 设置应用工作目录
     std::string workDirectory = "D:/";
-    app->setWorkDirectory(workDirectory);
+    std::string subDirectory = "自动调频";
+    app->setWorkDirectory(workDirectory, subDirectory);
 
     // 设置采集中的回调函数
     app->setAcquireCallback(func);
