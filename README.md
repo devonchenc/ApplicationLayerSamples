@@ -97,15 +97,19 @@ ApplicationBase是所有应用类的基类，其包含了应用子类的共同�
 
 ## 3.1 ApplicationBase::setWorkDirectory
 ```
-bool setWorkDirectory(const std::string& directory);
+bool setWorkDirectory(const std::string& directory, const std::string& subDirectory = "");
 ```
-函数说明：设置应用工作目录
+函数说明：设置App父目录和App工作目录名
 
 调用参数：
 
 directory
 
-目录名
+父目录名
+
+subDirectory
+
+App工作目录名
 
 函数返回：true或false。如果返回false，检查传入参数是否是有效路径。
 
@@ -113,7 +117,7 @@ directory
 ```
 std::string workDirectory() const;
 ```
-函数说明：返回应用工作目录
+函数说明：返回App完整工作目录
 
 调用参数：无
 
