@@ -109,7 +109,7 @@ directory
 
 subDirectory
 
-App工作目录名
+App工作目录名，该参数可省略，缺省则使用当前日期时间和应用名自动命名工作目录
 
 函数返回：true或false。如果返回false，检查传入参数是否是有效路径。
 
