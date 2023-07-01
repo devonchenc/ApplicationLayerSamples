@@ -486,7 +486,7 @@ std::string appConfigPath();
 
 函数返回：返回系统配置文件路径
 
-## 9.2 appConfigPath
+## 9.2 setAppConfigPath
 ```
 void setAppConfigPath(const std::string& path);
 ```
