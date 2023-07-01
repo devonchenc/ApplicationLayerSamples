@@ -474,3 +474,39 @@ double HardwareSetting::pw180();
 ```
 double pw180 = HardwareSetting::instance().pw180();
 ```
+# 9. 全局函数
+下面列出一些常用的全局函数。
+## 9.1 appConfigPath
+```
+std::string appConfigPath();
+```
+函数说明：返回系统配置文件路径
+
+调用参数：无
+
+函数返回：返回系统配置文件路径
+
+## 9.2 appConfigPath
+```
+void setAppConfigPath(const std::string& path);
+```
+函数说明：设置配置文件路径
+
+调用参数：
+
+path
+
+配置文件的文件夹名
+
+函数返回：无
+
+## 9.3 testConnection
+```
+bool testConnection();
+```
+
+函数说明：测试设备连接状态
+
+调用参数：无
+
+函数返回：true或false。如果返回false，代表设备未连接或连接异常。

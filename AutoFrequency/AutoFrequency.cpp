@@ -16,6 +16,14 @@ int main()
     // 初始化应用层
     ApplicationLayer::instance().init();
 
+    // 测试设备连接状态
+    if (!testConnection())
+    {
+        std::cout << "Failed to connect to device" << std::endl;
+        ApplicationLayer::instance().exit();
+        return false;
+    }
+
     // 创建应用
     std::string typeName = "AutoFrequency";
     AppPtr app = ApplicationFactory::instance().createApp(typeName);

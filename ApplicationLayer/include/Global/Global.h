@@ -53,9 +53,12 @@ typedef struct RawPoint3
 #include <string>
 
 // 返回配置文件路径
-std::string appConfigPath();
+std::string APPLICATIONLAYER_EXPORT appConfigPath();
 
 // 设置配置文件路径
-void setAppConfigPath(const std::string& path);
+void APPLICATIONLAYER_EXPORT setAppConfigPath(const std::string& path);
+
+// 测试设备连接状态
+bool APPLICATIONLAYER_EXPORT testConnection();
 
 #include "DoublePoint.h"
