@@ -25,7 +25,7 @@ public:
     bool saveTimeDomainData(const std::string& fileName) override;
 
     // 返回历次扫描的幅值数据
-    const std::vector<std::vector<float>>& amplitudeTotalData() const;
+    const std::vector<std::vector<Point3>>& amplitudeTotalData() const;
 
     // 返回历次扫描的时间数组
     const std::vector<std::vector<float>>& timeTotalData() const;
