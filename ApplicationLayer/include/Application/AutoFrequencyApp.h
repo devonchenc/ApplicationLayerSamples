@@ -15,7 +15,6 @@ public:
     void showProcessedData() override;
 
     // 保存后处理数据
-    bool saveProcessedData() override;
     bool saveProcessedData(const std::string& fileName) override;
 
     // 返回是否搜索成功

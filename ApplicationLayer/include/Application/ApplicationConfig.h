@@ -22,4 +22,7 @@ struct ApplicationConfig
 
     // 回波数目
     std::optional<int> NE;
+
+    // 预估T1值ms
+    std::optional<double> defaultT1;
 };

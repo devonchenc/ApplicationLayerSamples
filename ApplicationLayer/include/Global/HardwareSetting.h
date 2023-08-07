@@ -45,8 +45,8 @@ private:
     {}
 
     // ÖÐÐÄÆµÂÊMHz
-    double _frequency;
+    double _frequency = 0;
 
-    double _pw90;
-    double _pw180;
+    double _pw90 = 0;
+    double _pw180 = 0;
 };

@@ -51,7 +51,7 @@ public:
     virtual bool saveTimeDomainData(const std::string& fileName);
 
     // 保存后处理数据
-    virtual bool saveProcessedData() { return false; }
+    virtual bool saveProcessedData();
     virtual bool saveProcessedData(const std::string& fileName);
 
     // 用户命名
