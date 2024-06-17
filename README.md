@@ -258,22 +258,22 @@ int dataLength() const;
 
 函数返回：数组长度
 
-## 3.12 ApplicationBase::scanStatus()
+## 3.12 ApplicationBase::appStatus()
 ```
-bool scanStatus();
+AppStatus appStatus();
 ```
-函数说明：返回当前扫描状态
+函数说明：返回当前应用的扫描状态
 
 调用参数：无
 
-函数返回：enum ScanStatus枚举类型，定义如下
+函数返回：enum AppStatus 枚举类型，定义如下
 
 ```
-enum ScanStatus
+enum AppStatus
 {
-    Idle,         // 设备未开始扫描
-    Scanning,     // 设备正在扫描中
-    Canceling     // 设备扫描取消中
+    AppIdle,        // 设备未开始扫描
+    AppScanning,    // 设备正在扫描中
+    AppCanceling    // 设备扫描取消中
 };
 ```
 ## 3.13 ApplicationBase::stopScan()

@@ -45,12 +45,12 @@ int main()
     // 执行扫描
     if (app->executeScan())
     {
-        //  获取时域数据
+        // 获取时域数据
         const int length = app->dataLength();
         const std::shared_ptr<Point3[]> timeDomainData = app->timeDomainData();
         const std::shared_ptr<double[]> timeArray = app->timeArray();
 
-        //  获取后处理数据
+        // 获取后处理数据
         std::shared_ptr<T1T2SpectrumApp> spectrumApp = std::dynamic_pointer_cast<T1T2SpectrumApp>(app);
         const std::vector<std::vector<Point3>>& amplitudeVec = spectrumApp->amplitudeTotalData();
         const std::vector<std::vector<float>>& timeVec = spectrumApp->timeTotalData();
