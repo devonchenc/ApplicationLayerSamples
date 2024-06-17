@@ -34,8 +34,8 @@ template <typename T> inline T *getPtrHelper(T *ptr) { return ptr; }
 #define APP_Q(Class) Class * const q = q_func()
 #endif
 
-#ifndef POINT3
-#define POINT3
+#ifndef RAW_POINT3
+#define RAW_POINT3
 typedef struct RawPoint3
 {
     RawPoint3()
@@ -52,13 +52,13 @@ typedef struct RawPoint3
 
 #include <string>
 
-// 返回配置文件路径
+//! 返回配置文件路径
 std::string APPLICATIONLAYER_EXPORT appConfigPath();
 
-// 设置配置文件路径
+//! 设置配置文件路径
 void APPLICATIONLAYER_EXPORT setAppConfigPath(const std::string& path);
 
-// 测试设备连接状态
+//! 测试设备连接状态
 bool APPLICATIONLAYER_EXPORT testConnection();
 
 #include "DoublePoint.h"

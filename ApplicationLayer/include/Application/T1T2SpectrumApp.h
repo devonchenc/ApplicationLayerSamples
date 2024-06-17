@@ -4,30 +4,32 @@
 
 class T1T2SpectrumAppPrivate;
 
+//! T1T2谱类
 class APPLICATIONLAYER_EXPORT T1T2SpectrumApp : public ApplicationBase
 {
 public:
     T1T2SpectrumApp(const std::string& name);
 
+    //! 初始化
     bool init() override;
 
-    // 保存配置文件
+    //! 保存配置文件
     void saveConfig() override;
 
-    // 准备开始扫描
+    //! 准备开始扫描
     void prepareScan() override;
 
-    // 显示后处理数据
+    //! 显示后处理数据
     void showProcessedData() override;
 
-    // 保存时域数据
+    //! 保存时域数据
     bool saveTimeDomainData() override;
     bool saveTimeDomainData(const std::string& fileName) override;
 
-    // 返回历次扫描的时域数据
+    //! 返回历次扫描的时域数据
     const std::vector<std::vector<Point3>>& amplitudeTotalData() const;
 
-    // 返回历次扫描的时间数组
+    //! 返回历次扫描的时间数组
     const std::vector<std::vector<float>>& timeTotalData() const;
 
 private:

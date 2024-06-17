@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ApplicationlayerGlobal.h"
-#include "Global/HardwareSetting.h"
+#include "Global/HardwareSettings.h"
 #include "Application/ApplicationFactory.h"
 
 class APPLICATIONLAYER_EXPORT ApplicationLayer
