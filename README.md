@@ -401,26 +401,26 @@ T1T2谱应用类T1T2SpectrumApp是ApplicationBase的子类，该应用会测量�
 ApplicationFactory::instance().createApp("T1T2Spectrum");
 ```
 
-# 8. 参数设置类HardwareSetting
+# 8. 参数设置类HardwareSettings
 参数设置类HardwareSetting主要用来加载和查询当前系统的中心频率以及90°脉宽和180°脉宽参数数值。
 
-## 8.1 HardwareSetting::instance
+## 8.1 HardwareSettings::instance
 ```
-static HardwareSetting& HardwareSetting::instance();
+static HardwareSettings& HardwareSettings::instance();
 ```
 函数说明：静态成员函数，用来获取该类实例
 
 调用参数：无
 
-函数返回：参数设置类HardwareSetting的引用
+函数返回：参数设置类HardwareSettings的引用
 
 调用示例：
 ```
-HardwareSetting& instance = HardwareSetting::instance();
+HardwareSettings& instance = HardwareSettings::instance();
 ```
-## 8.2 HardwareSetting::loadSetting()
+## 8.2 HardwareSettings::loadSetting()
 ```
-void HardwareSetting::loadSetting();
+void HardwareSettings::loadSetting();
 ```
 函数说明：从ini配置文件加载中心频率和90°脉宽、180°脉宽参数
 
@@ -430,11 +430,11 @@ void HardwareSetting::loadSetting();
 
 调用示例：
 ```
-HardwareSetting::instance().loadSetting();
+HardwareSettings::instance().loadSetting();
 ```
-## 8.3 HardwareSetting::frequency()
+## 8.3 HardwareSettings::frequency()
 
-double HardwareSetting::frequency();
+double HardwareSettings::frequency();
 
 函数说明：返回系统当前的中心频率
 
@@ -444,11 +444,11 @@ double HardwareSetting::frequency();
 
 调用示例：
 ```
-double freq = HardwareSetting::instance().frequency();
+double freq = HardwareSettings::instance().frequency();
 ```
-## 8.4 HardwareSetting::pw90()
+## 8.4 HardwareSettings::pw90()
 ```
-double HardwareSetting::pw90();
+double HardwareSettings::pw90();
 ```
 函数说明：返回系统当前的90°脉宽
 
@@ -458,11 +458,11 @@ double HardwareSetting::pw90();
 
 调用示例：
 ```
-double pw90 = HardwareSetting::instance().pw90();
+double pw90 = HardwareSettings::instance().pw90();
 ```
-## 8.5 HardwareSetting::pw180()
+## 8.5 HardwareSettings::pw180()
 ```
-double HardwareSetting::pw180();
+double HardwareSettings::pw180();
 ```
 函数说明：返回系统当前的180°脉宽
 
@@ -472,7 +472,7 @@ double HardwareSetting::pw180();
 
 调用示例：
 ```
-double pw180 = HardwareSetting::instance().pw180();
+double pw180 = HardwareSettings::instance().pw180();
 ```
 # 9. 全局函数
 下面列出一些常用的全局函数。
