@@ -418,9 +418,9 @@ static HardwareSettings& HardwareSettings::instance();
 ```
 HardwareSettings& instance = HardwareSettings::instance();
 ```
-## 8.2 HardwareSettings::loadSetting()
+## 8.2 HardwareSettings::loadSettings()
 ```
-void HardwareSettings::loadSetting();
+void HardwareSettings::loadSettings();
 ```
 函数说明：从ini配置文件加载中心频率和90°脉宽、180°脉宽参数
 
@@ -430,7 +430,7 @@ void HardwareSettings::loadSetting();
 
 调用示例：
 ```
-HardwareSettings::instance().loadSetting();
+HardwareSettings::instance().loadSettings();
 ```
 ## 8.3 HardwareSettings::frequency()
 
